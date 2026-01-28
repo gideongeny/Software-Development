@@ -1,107 +1,77 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Send, Mail, MapPin, Twitter, Github, Linkedin } from 'lucide-react';
+import { Github, Twitter, Linkedin, MessageCircle, Send } from 'lucide-react';
 
 const AboutContact = () => {
     return (
-        <section id="about" className="section-padding bg-background relative overflow-hidden">
-            <div className="container mx-auto">
-                <div className="grid lg:grid-cols-12 gap-12">
-                    {/* About Section - Editorial Style */}
-                    <div className="lg:col-span-7">
-                        <motion.div
-                            initial={{ opacity: 0, x: -30 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 1 }}
-                            viewport={{ once: true }}
-                        >
-                            <h2 className="text-5xl md:text-7xl font-black mb-12 leading-tight tracking-tighter">
-                                We Build <br />
-                                <span className="text-premium-gradient">Architects.</span>
-                            </h2>
-                            <div className="space-y-8 max-w-xl">
-                                <p className="text-xl text-secondary leading-relaxed">
-                                    Profplanet isn't a bootcamp. It's a refinery. We take the raw ambition of aspiring tech leaders and forge them into world-class engineers through rigorous, peer-driven challenge.
-                                </p>
-                                <div className="grid grid-cols-2 gap-10 py-12 border-y border-border">
-                                    <div>
-                                        <div className="text-4xl font-black mb-2 font-outfit">1.2k+</div>
-                                        <div className="text-xs uppercase tracking-[0.2em] font-bold text-secondary">Global Alumni</div>
-                                    </div>
-                                    <div>
-                                        <div className="text-4xl font-black mb-2 font-outfit">15+</div>
-                                        <div className="text-xs uppercase tracking-[0.2em] font-bold text-secondary">Countries</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </motion.div>
-                    </div>
+        <section id="about" className="py-24 px-6 md:px-12 bg-black border-t border-border">
+            <div className="container mx-auto max-w-5xl">
+                <div className="grid lg:grid-cols-2 gap-20">
+                    {/* About Column */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        <h2 className="text-3xl md:text-5xl font-black mb-10 tracking-tight font-geist">
+                            Beyond the <br />
+                            <span className="text-secondary opacity-50">Hello World.</span>
+                        </h2>
+                        <div className="space-y-6 text-secondary text-lg leading-relaxed">
+                            <p>
+                                Profplanet is more than a learning platform—it's a developer hub. We focus on the core principles of engineering that go beyond syntax.
+                            </p>
+                            <p>
+                                Our mission is to cultivate a new generation of digital architects who don't just write code, but build systems that solve real problems.
+                            </p>
+                        </div>
 
-                    {/* Contact Section - Minimalist Glass Form */}
-                    <div className="lg:col-span-5" id="contact">
-                        <motion.div
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.8 }}
-                            viewport={{ once: true }}
-                            className="premium-glass p-10 md:p-12 rounded-[3.5rem] relative"
-                        >
-                            <div className="absolute -top-10 -right-10 w-40 h-40 bg-primary/20 rounded-full blur-3xl"></div>
+                        <div className="mt-12 flex gap-4">
+                            {[Twitter, Github, Linkedin, MessageCircle].map((Icon, i) => (
+                                <a key={i} href="#" className="w-12 h-12 rounded-lg border border-border flex items-center justify-center hover:bg-white/5 transition-colors">
+                                    <Icon className="w-5 h-5 text-white" />
+                                </a>
+                            ))}
+                        </div>
+                    </motion.div>
 
-                            <h3 className="text-3xl font-black mb-10 font-outfit">Inquire.</h3>
+                    {/* Contact Column */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 }}
+                        viewport={{ once: true }}
+                        id="contact"
+                        className="p-8 rounded-2xl bg-white/[0.02] border border-border relative overflow-hidden group"
+                    >
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full blur-3xl pointer-events-none group-hover:bg-primary/20 transition-colors"></div>
 
-                            <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
-                                <div className="space-y-1">
-                                    <input
-                                        type="text"
-                                        placeholder="Full Name"
-                                        className="w-full bg-transparent border-b border-border py-4 outline-none focus:border-primary transition-colors text-lg"
-                                    />
-                                </div>
-                                <div className="space-y-1">
-                                    <input
-                                        type="email"
-                                        placeholder="Email Address"
-                                        className="w-full bg-transparent border-b border-border py-4 outline-none focus:border-primary transition-colors text-lg"
-                                    />
-                                </div>
-                                <div className="space-y-1 pb-10">
-                                    <textarea
-                                        placeholder="Tell us about your goals..."
-                                        rows="3"
-                                        className="w-full bg-transparent border-b border-border py-4 outline-none focus:border-primary transition-colors text-lg resize-none"
-                                    ></textarea>
-                                </div>
-
-                                <button className="w-full btn-premium flex items-center justify-center gap-4 group">
-                                    Submit Interest
-                                    <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                                </button>
-                            </form>
-
-                            <div className="mt-12 pt-12 border-t border-border flex justify-between items-center">
-                                <div className="flex gap-6">
-                                    <Twitter className="w-5 h-5 text-secondary hover:text-white cursor-pointer transition-colors" />
-                                    <Github className="w-5 h-5 text-secondary hover:text-white cursor-pointer transition-colors" />
-                                    <Linkedin className="w-5 h-5 text-secondary hover:text-white cursor-pointer transition-colors" />
-                                </div>
-                                <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-secondary">
-                                    <MapPin className="w-4 h-4" />
-                                    Nairobi
-                                </div>
-                            </div>
-                        </motion.div>
-                    </div>
+                        <h3 className="text-2xl font-bold mb-8">Get in Touch</h3>
+                        <form className="space-y-6" onSubmit={(e) => e.preventDefault()}>
+                            <input
+                                type="text"
+                                placeholder="Name"
+                                className="w-full bg-black border border-border rounded-lg px-4 py-3 outline-none focus:border-primary transition-colors"
+                            />
+                            <input
+                                type="email"
+                                placeholder="Email"
+                                className="w-full bg-black border border-border rounded-lg px-4 py-3 outline-none focus:border-primary transition-colors"
+                            />
+                            <textarea
+                                placeholder="Message"
+                                rows="4"
+                                className="w-full bg-black border border-border rounded-lg px-4 py-3 outline-none focus:border-primary transition-colors resize-none"
+                            ></textarea>
+                            <button className="w-full py-4 rounded-lg bg-primary text-white font-bold hover:bg-primary/90 transition-all flex items-center justify-center gap-2">
+                                Send Message <Send className="w-4 h-4" />
+                            </button>
+                        </form>
+                    </motion.div>
                 </div>
             </div>
         </section>
     );
 };
-
-const ArrowRight = ({ className }) => (
-    <svg className={className} width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path>
-    </svg>
-);
 
 export default AboutContact;
