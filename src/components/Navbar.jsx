@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Rocket, GraduationCap, Users, Mail, LogIn } from 'lucide-react';
+import { Menu, X, ArrowRight } from 'lucide-react';
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
@@ -15,89 +15,66 @@ const Navbar = () => {
     }, []);
 
     const navLinks = [
-        { name: 'Home', href: '#home', icon: Rocket },
-        { name: 'Programs', href: '#programs', icon: GraduationCap },
-        { name: 'About Us', href: '#about', icon: Users },
-        { name: 'Contact Us', href: '#contact', icon: Mail },
+        { name: 'Programs', href: '#programs' },
+        { name: 'About', href: '#about' },
+        { name: 'Contact', href: '#contact' },
     ];
 
     return (
-        <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'py-4 glass-morphism' : 'py-6'}`}>
-            <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
-                <motion.div
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    className="flex items-center gap-2 text-2xl font-bold font-outfit tracking-tight"
-                >
-                    <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg shadow-blue-500/20">
-                        <GraduationCap className="text-white w-6 h-6" />
-                    </div>
-                    <span className="text-gradient">Profplanet</span>
-                </motion.div>
-
-                {/* Desktop Links */}
-                <div className="hidden md:flex items-center gap-8">
-                    {navLinks.map((link, index) => (
-                        <motion.a
-                            key={link.name}
-                            href={link.href}
-                            initial={{ opacity: 0, y: -10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: index * 0.1 }}
-                            className="text-sm font-medium text-gray-300 hover:text-white transition-colors relative group"
-                        >
-                            {link.name}
-                            <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
-                        </motion.a>
-                    ))}
+        <nav className={`fixed top-0 w-full z-[90] transition-all duration-500 ${scrolled ? 'py-4' : 'py-8'}`}>
+            <div className="container mx-auto px-6 md:px-12">
+                <div className={`flex justify-between items-center transition-all duration-500 rounded-[2rem] px-8 ${scrolled ? 'premium-glass py-3' : 'py-0'}`}>
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: 0.4 }}
-                        className="flex items-center gap-4"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        className="text-2xl font-black font-outfit"
                     >
-                        <button className="text-sm font-medium hover:text-blue-400 transition-colors">Login</button>
-                        <button className="btn-primary !py-2 !px-6 text-sm">Get Started</button>
+                        <span className="text-white">Prof</span>
+                        <span className="text-primary">planet</span>
                     </motion.div>
-                </div>
 
-                {/* Mobile Toggle */}
-                <div className="md:hidden">
-                    <button onClick={() => setIsOpen(!isOpen)} className="text-white p-2">
+                    <div className="hidden md:flex items-center gap-10">
+                        {navLinks.map((link) => (
+                            <a
+                                key={link.name}
+                                href={link.href}
+                                className="text-xs font-bold uppercase tracking-widest text-secondary hover:text-white transition-colors"
+                            >
+                                {link.name}
+                            </a>
+                        ))}
+                        <div className="h-4 w-[1px] bg-border mx-2"></div>
+                        <button className="text-xs font-bold uppercase tracking-widest hover:text-primary transition-colors">Login</button>
+                        <button className="px-6 py-2 rounded-full bg-white text-background text-xs font-bold uppercase tracking-widest hover:scale-105 transition-transform">
+                            Join
+                        </button>
+                    </div>
+
+                    <button onClick={() => setIsOpen(!isOpen)} className="md:hidden text-white">
                         {isOpen ? <X /> : <Menu />}
                     </button>
                 </div>
             </div>
 
-            {/* Mobile Menu */}
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: 'auto' }}
-                        exit={{ opacity: 0, height: 0 }}
-                        className="md:hidden glass-morphism border-t border-white/10 overflow-hidden"
+                        initial={{ opacity: 0, y: -20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -20 }}
+                        className="fixed inset-0 z-[80] premium-glass md:hidden flex flex-col items-center justify-center gap-12"
                     >
-                        <div className="flex flex-col p-6 gap-6">
-                            {navLinks.map((link) => (
-                                <a
-                                    key={link.name}
-                                    href={link.href}
-                                    onClick={() => setIsOpen(false)}
-                                    className="flex items-center gap-3 text-lg font-medium text-gray-300 hover:text-white"
-                                >
-                                    <link.icon className="w-5 h-5 text-blue-400" />
-                                    {link.name}
-                                </a>
-                            ))}
-                            <div className="flex flex-col gap-4 pt-4 border-t border-white/10">
-                                <button className="flex items-center gap-3 text-lg font-medium text-gray-300">
-                                    <LogIn className="w-5 h-5 text-blue-400" />
-                                    Login
-                                </button>
-                                <button className="btn-primary w-full">Get Started</button>
-                            </div>
-                        </div>
+                        {navLinks.map((link) => (
+                            <a
+                                key={link.name}
+                                href={link.href}
+                                onClick={() => setIsOpen(false)}
+                                className="text-3xl font-black font-outfit text-white hover:text-primary transition-colors"
+                            >
+                                {link.name}
+                            </a>
+                        ))}
+                        <button className="btn-premium">Get Started</button>
                     </motion.div>
                 )}
             </AnimatePresence>

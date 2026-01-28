@@ -7,42 +7,50 @@ export default {
   theme: {
     extend: {
       colors: {
+        background: "#020617",
+        foreground: "#f8fafc",
+        card: "rgba(15, 23, 42, 0.6)",
+        border: "rgba(255, 255, 255, 0.08)",
         primary: {
-          DEFAULT: "#3b82f6",
-          dark: "#1d4ed8",
+          DEFAULT: "#6366f1", // Indigo
+          glow: "#818cf8",
         },
         secondary: {
-          DEFAULT: "#8b5cf6",
-          dark: "#6d28d9",
+          DEFAULT: "#94a3b8", // Slate
+          light: "#e2e8f0",
         },
         accent: {
-          DEFAULT: "#10b981",
-          dark: "#047857",
-        },
-        dark: {
-          DEFAULT: "#0f172a",
-          lighter: "#1e293b",
-          deep: "#020617",
-        },
+          DEFAULT: "#38bdf8", // Sky Blue
+          purple: "#a855f7",
+        }
       },
       fontFamily: {
-        inter: ['Inter', 'sans-serif'],
-        outfit: ['Outfit', 'sans-serif'],
+        outfit: ["Outfit", "sans-serif"],
+        inter: ["Inter", "sans-serif"],
+      },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'premium-gradient': 'linear-gradient(135deg, #6366f1 0%, #a855f7 100%)',
+      },
+      boxShadow: {
+        'premium': '0 0 30px -10px rgba(99, 102, 241, 0.3)',
+        'premium-hover': '0 0 40px -5px rgba(99, 102, 241, 0.4)',
       },
       animation: {
-        'gradient-x': 'gradient-x 15s ease infinite',
-        'float': 'float 6s ease-in-out infinite',
+        'glow-pulse': 'glow-pulse 4s ease-in-out infinite',
+        'slow-drift': 'slow-drift 20s linear infinite',
       },
       keyframes: {
-        'gradient-x': {
-          '0%, 100%': { 'background-size': '200% 200%', 'background-position': 'left center' },
-          '50%': { 'background-size': '200% 200%', 'background-position': 'right center' },
+        'glow-pulse': {
+          '0%, 100%': { opacity: 0.3 },
+          '50%': { opacity: 0.6 },
         },
-        'float': {
-          '0%, 100%': { transform: 'translateY(0)' },
-          '50%': { transform: 'translateY(-20px)' },
-        },
-      },
+        'slow-drift': {
+          '0%': { transform: 'translate(0, 0)' },
+          '50%': { transform: 'translate(20px, 20px)' },
+          '100%': { transform: 'translate(0, 0)' },
+        }
+      }
     },
   },
   plugins: [],
