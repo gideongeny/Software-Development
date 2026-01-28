@@ -1,81 +1,86 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Code2, Rocket, ShieldCheck } from 'lucide-react';
+import premiumHeroImg from '../assets/premium-hero.png';
 
 const Hero = () => {
     return (
-        <section className="relative min-h-screen flex flex-col justify-center items-center px-6 pt-24 overflow-hidden grid-bg">
-            {/* Background Spotlight */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full spotlight -z-10 pointer-events-none opacity-50"></div>
+        <section className="relative min-h-screen flex flex-col justify-center items-center overflow-hidden bg-obsidian">
+            {/* Background Cinematic Glows */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full indigo-glow -z-10 opacity-40"></div>
 
-            <div className="container mx-auto max-w-5xl text-center relative z-10">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.5 }}
-                    className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-white/[0.03] text-secondary text-sm font-medium mb-12"
-                >
-                    <span className="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
-                    Revolutionizing Tech Education
-                </motion.div>
+            <div className="container mx-auto px-6 md:px-12 relative z-10">
+                <div className="grid lg:grid-cols-2 gap-20 items-center">
+                    <div className="text-left">
+                        <motion.div
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            className="inline-flex items-center gap-4 text-secondary text-xs font-black uppercase tracking-[0.4em] mb-12"
+                        >
+                            <div className="w-12 h-[1px] bg-indigo-500"></div>
+                            The Future of Mastery
+                        </motion.div>
 
-                <motion.h1
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.1 }}
-                    className="text-5xl md:text-8xl font-black mb-8 leading-[1.1] tracking-tight text-gradient-codeteria"
-                >
-                    Master the Art of <br />
-                    Modern Software.
-                </motion.h1>
-
-                <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    className="text-lg md:text-2xl text-secondary max-w-2xl mx-auto mb-16 leading-relaxed"
-                >
-                    Profplanet provides a structured, peer-supported ecosystem to transform your ambition into engineering excellence.
-                </motion.p>
-
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.3 }}
-                    className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8"
-                >
-                    <button className="w-full sm:w-auto px-8 py-4 rounded-lg bg-white text-black font-bold transition-all hover:bg-white/90 hover:scale-105 active:scale-95 text-lg">
-                        Enroll Now
-                    </button>
-                    <button className="w-full sm:w-auto px-8 py-4 rounded-lg border border-border bg-transparent text-white font-bold transition-all hover:bg-white/5 text-lg flex items-center justify-center gap-2">
-                        View Curriculum <ArrowRight className="w-5 h-5" />
-                    </button>
-                </motion.div>
-
-                {/* Feature Tags */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 1, delay: 1 }}
-                    className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8 text-left max-w-4xl mx-auto"
-                >
-                    {[
-                        { icon: Code2, title: "Full-Stack Mastery", desc: "React, Python, Flask & SQL" },
-                        { icon: Rocket, title: "Carrier Growth", desc: "Peer-supported mentorship" },
-                        { icon: ShieldCheck, title: "Real-world Ready", desc: "Build & deploy live projects" },
-                    ].map((item, i) => (
-                        <div key={i} className="flex gap-4 p-4 rounded-xl border border-border bg-white/[0.02]">
-                            <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                                <item.icon className="w-5 h-5 text-primary" />
-                            </div>
-                            <div>
-                                <h4 className="font-bold text-sm mb-1">{item.title}</h4>
-                                <p className="text-xs text-secondary">{item.desc}</p>
-                            </div>
+                        <div className="text-reveal-mask mb-10">
+                            <motion.h1
+                                initial={{ y: "100%" }}
+                                animate={{ y: 0 }}
+                                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                                className="text-6xl md:text-[5.5rem] font-black leading-[1] tracking-tight text-luxury-gradient font-display"
+                            >
+                                Architect Your <br />
+                                Digital Legacy.
+                            </motion.h1>
                         </div>
-                    ))}
-                </motion.div>
+
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 1, delay: 0.5 }}
+                            className="text-lg md:text-xl text-secondary max-w-xl mb-16 leading-relaxed font-light"
+                        >
+                            Profplanet is an elite technical forge. We develop the architects who design the future of software, piece by crystalline piece.
+                        </motion.p>
+
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 1, delay: 0.7 }}
+                            className="flex flex-wrap gap-8"
+                        >
+                            <button className="btn-luxury">Enroll in Academy</button>
+                            <button className="btn-luxury-outline flex items-center gap-4 group">
+                                Review Roadmap
+                                <div className="w-6 h-6 rounded-full border border-white/20 flex items-center justify-center group-hover:border-white transition-colors">
+                                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H1M9 1V9" stroke="currentColor" strokeWidth="1.5" /></svg>
+                                </div>
+                            </button>
+                        </motion.div>
+                    </div>
+
+                    <motion.div
+                        initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
+                        animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                        transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
+                        className="relative hidden lg:block"
+                    >
+                        <div className="absolute inset-0 bg-indigo-500/20 blur-[120px] rounded-full animate-pulse"></div>
+                        <motion.img
+                            src={premiumHeroImg}
+                            alt="Ultra Premium Visual"
+                            className="relative z-10 w-full h-auto drop-shadow-[0_0_100px_rgba(79,70,229,0.3)] animate-float-slow"
+                        />
+                    </motion.div>
+                </div>
             </div>
+
+            {/* Aesthetic Scroll Indicator */}
+            <motion.div
+                animate={{ y: [0, 10, 0] }}
+                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute bottom-12 left-1/2 -translate-x-1/2 opacity-20"
+            >
+                <div className="w-[1px] h-20 bg-gradient-to-b from-white to-transparent"></div>
+            </motion.div>
         </section>
     );
 };
