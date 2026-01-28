@@ -19,7 +19,6 @@ const Academy = () => {
     ];
 
     return (
-    return (
         <section id="academy" className="premium-padding bg-obsidian text-white relative overflow-hidden">
             {/* Background elements */}
             <div className="absolute top-0 right-0 w-full h-full bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-accent-purple/20 via-obsidian to-obsidian -z-10 opacity-50"></div>

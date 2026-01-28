@@ -25,7 +25,6 @@ const FAQ = () => {
     ];
 
     return (
-    return (
         <section className="premium-padding bg-obsidian architectural-grid relative">
             <div className="container mx-auto max-w-4xl relative z-10">
                 <div className="mb-24 text-center">

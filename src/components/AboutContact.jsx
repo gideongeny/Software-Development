@@ -3,7 +3,6 @@ import { motion } from 'framer-motion';
 
 const AboutContact = () => {
     return (
-    return (
         <section id="contact" className="premium-padding bg-obsidian relative overflow-hidden architectural-grid">
             {/* Background Decor */}
             <div className="absolute top-[20%] right-0 w-[600px] h-[600px] bg-accent-glow/5 rounded-full blur-[180px] -z-10 animate-pulse-soft"></div>

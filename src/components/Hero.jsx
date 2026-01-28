@@ -4,7 +4,6 @@ import premiumHeroImg from '../assets/premium-hero-new.png';
 
 const Hero = () => {
     return (
-    return (
         <section className="relative min-h-[110vh] flex flex-col justify-center items-center overflow-hidden bg-obsidian text-white selection:bg-gold-500/30">
             {/* Background Cinematic Glows */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-subtle-glow -z-10 opacity-40"></div>

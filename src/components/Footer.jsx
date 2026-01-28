@@ -2,7 +2,6 @@ import React from 'react';
 
 const Footer = () => {
     return (
-    return (
         <footer className="premium-padding bg-obsidian border-t border-white/5 pb-20 relative overflow-hidden">
             {/* Architectural Accent */}
             <div className="absolute bottom-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-accent-glow/50 to-transparent"></div>

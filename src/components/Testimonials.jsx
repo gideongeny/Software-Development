@@ -21,7 +21,6 @@ const Testimonials = () => {
     ];
 
     return (
-    return (
         <section className="premium-padding bg-obsidian relative overflow-hidden">
             {/* Background glow for depth */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-accent-glow/5 blur-[120px] -z-10 rounded-full"></div>
