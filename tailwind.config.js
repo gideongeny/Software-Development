@@ -7,40 +7,50 @@ export default {
   theme: {
     extend: {
       colors: {
-        obsidian: "#030712",
-        charcoal: "#0f172a",
-        luxury: {
-          indigo: "#4f46e5",
-          silver: "#94a3b8",
-          gold: "#d4af37", // Used sparingly for accents
+        obsidian: "#020617", // Main background
+        charcoal: "#0f172a", // Secondary dark
+        gold: {
+          400: "#fbbf24",
+          500: "#f59e0b",
+          600: "#d97706",
         },
-        border: "rgba(255, 255, 255, 0.05)",
+        accent: {
+          glow: "#6366f1", // Indigo core
+          purple: "#a855f7",
+          cyan: "#06b6d4"
+        }
       },
       fontFamily: {
         display: ["Outfit", "sans-serif"],
         body: ["Inter", "sans-serif"],
       },
       backgroundImage: {
-        'luxury-gradient': 'linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 100%)',
-        'indigo-glow': 'radial-gradient(circle at center, rgba(79, 70, 229, 0.15) 0%, transparent 70%)',
+        'luxury-gradient': 'linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0) 100%)',
+        'subtle-glow': 'radial-gradient(circle at center, rgba(99, 102, 241, 0.08) 0%, transparent 70%)',
       },
       animation: {
-        'float-slow': 'float 10s ease-in-out infinite',
-        'reveal-text': 'reveal 1.2s cubic-bezier(0.77, 0, 0.175, 1) forwards',
+        'float': 'float 8s ease-in-out infinite',
+        'float-delayed': 'float 8s ease-in-out 4s infinite',
+        'fade-in-up': 'fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards',
         'fade-in': 'fadeIn 1s ease-out forwards',
+        'shimmer': 'shimmer 2.5s linear infinite',
       },
       keyframes: {
         float: {
-          '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
-          '50%': { transform: 'translateY(-20px) rotate(2deg)' },
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-20px)' },
         },
-        reveal: {
-          '0%': { transform: 'translateY(100%)', opacity: 0 },
-          '100%': { transform: 'translateY(0)', opacity: 1 },
+        fadeInUp: {
+          '0%': { opacity: 0, transform: 'translateY(40px)' },
+          '100%': { opacity: 1, transform: 'translateY(0)' },
         },
         fadeIn: {
           '0%': { opacity: 0 },
           '100%': { opacity: 1 },
+        },
+        shimmer: {
+          '0%': { backgroundPosition: '-1000px 0' },
+          '100%': { backgroundPosition: '1000px 0' },
         }
       }
     },

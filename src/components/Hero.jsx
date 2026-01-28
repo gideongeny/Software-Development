@@ -1,74 +1,108 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import premiumHeroImg from '../assets/premium-hero.png';
+import premiumHeroImg from '../assets/premium-hero-new.png';
 
 const Hero = () => {
     return (
-        <section className="relative min-h-screen flex flex-col justify-center items-center overflow-hidden bg-obsidian">
+    return (
+        <section className="relative min-h-[110vh] flex flex-col justify-center items-center overflow-hidden bg-obsidian text-white selection:bg-gold-500/30">
             {/* Background Cinematic Glows */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full indigo-glow -z-10 opacity-40"></div>
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-subtle-glow -z-10 opacity-40"></div>
+            <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 brightness-100 contrast-150 mix-blend-overlay"></div>
 
             <div className="container mx-auto px-6 md:px-12 relative z-10">
-                <div className="grid lg:grid-cols-2 gap-20 items-center">
+                <div className="grid lg:grid-cols-2 gap-24 items-center">
                     <div className="text-left">
                         <motion.div
                             initial={{ opacity: 0, x: -20 }}
                             animate={{ opacity: 1, x: 0 }}
-                            className="inline-flex items-center gap-4 text-secondary text-xs font-black uppercase tracking-[0.4em] mb-12"
+                            className="inline-flex items-center gap-4 text-gold-400 text-[10px] font-black uppercase tracking-[0.3em] mb-12 px-6 py-3 border border-gold-500/20 rounded-full glass-panel"
                         >
-                            <div className="w-12 h-[1px] bg-indigo-500"></div>
-                            The Future of Mastery
+                            <span className="w-1.5 h-1.5 rounded-full bg-gold-400 animate-pulse"></span>
+                            The Elite Technical Forge
                         </motion.div>
 
                         <div className="text-reveal-mask mb-10">
                             <motion.h1
                                 initial={{ y: "100%" }}
                                 animate={{ y: 0 }}
-                                transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                                className="text-6xl md:text-[5.5rem] font-black leading-[1] tracking-tight text-luxury-gradient font-display"
+                                transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
+                                className="text-7xl md:text-[7rem] font-black leading-[0.85] tracking-tighter font-display text-white"
                             >
-                                Architect Your <br />
-                                Digital Legacy.
+                                Forge Your <br />
+                                <span className="text-gradient-gold">Dominance.</span>
                             </motion.h1>
                         </div>
 
                         <motion.p
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 30 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1, delay: 0.5 }}
-                            className="text-lg md:text-xl text-secondary max-w-xl mb-16 leading-relaxed font-light"
+                            className="text-xl md:text-2xl text-white/60 max-w-xl mb-16 leading-relaxed font-light"
                         >
-                            Profplanet is an elite technical forge. We develop the architects who design the future of software, piece by crystalline piece.
+                            We don't teach code. We architect the minds that will build the next era of digital infrastructure. Pure technical lethality.
                         </motion.p>
 
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
                             transition={{ duration: 1, delay: 0.7 }}
-                            className="flex flex-wrap gap-8"
+                            className="flex flex-wrap gap-8 items-center"
                         >
-                            <button className="btn-luxury">Enroll in Academy</button>
-                            <button className="btn-luxury-outline flex items-center gap-4 group">
-                                Review Roadmap
-                                <div className="w-6 h-6 rounded-full border border-white/20 flex items-center justify-center group-hover:border-white transition-colors">
-                                    <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M1 9L9 1M9 1H1M9 1V9" stroke="currentColor" strokeWidth="1.5" /></svg>
-                                </div>
+                            <button className="bg-white text-obsidian px-10 py-4 rounded-full text-xs font-black uppercase tracking-widest hover:scale-105 hover:shadow-[0_0_40px_rgba(255,255,255,0.4)] transition-all duration-500">
+                                Enroll in Forge
                             </button>
+                            <button className="flex items-center gap-6 group text-white text-xs font-black uppercase tracking-[0.3em] hover:text-gold-400 transition-colors">
+                                <span className="w-16 h-[1px] bg-white/20 group-hover:w-24 group-hover:bg-gold-400 transition-all duration-700"></span>
+                                The Roadmap
+                            </button>
+                        </motion.div>
+
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ delay: 1.5 }}
+                            className="mt-28 grid grid-cols-3 gap-12 border-t border-white/10 pt-10"
+                        >
+                            {[
+                                { num: "001", label: "Architecture First" },
+                                { num: "002", label: "Full Stack Mastery" },
+                                { num: "003", label: "Elite Network" }
+                            ].map((item) => (
+                                <div key={item.num}>
+                                    <div className="text-white font-black text-2xl font-display">{item.num}</div>
+                                    <div className="text-white/40 text-[9px] uppercase tracking-widest font-bold mt-2">{item.label}</div>
+                                </div>
+                            ))}
                         </motion.div>
                     </div>
 
                     <motion.div
-                        initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
-                        animate={{ opacity: 1, scale: 1, rotate: 0 }}
-                        transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
+                        initial={{ opacity: 0, scale: 0.9, x: 50 }}
+                        animate={{ opacity: 1, scale: 1, x: 0 }}
+                        transition={{ duration: 2.5, ease: [0.16, 1, 0.3, 1] }}
                         className="relative hidden lg:block"
                     >
-                        <div className="absolute inset-0 bg-indigo-500/20 blur-[120px] rounded-full animate-pulse"></div>
-                        <motion.img
-                            src={premiumHeroImg}
-                            alt="Ultra Premium Visual"
-                            className="relative z-10 w-full h-auto drop-shadow-[0_0_100px_rgba(79,70,229,0.3)] animate-float-slow"
-                        />
+                        <div className="absolute inset-0 bg-gold-500/5 blur-[120px] rounded-full animate-pulse"></div>
+                        <div className="relative z-10 p-6 rounded-[3rem] border border-white/10 glass-panel shadow-2xl overflow-hidden group">
+                            <motion.img
+                                src={premiumHeroImg}
+                                alt="Ultra Premium Visual"
+                                className="w-full h-auto rounded-[2.5rem] grayscale-[0.3] group-hover:grayscale-0 transition-all duration-1000 scale-[1.02] group-hover:scale-100"
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-obsidian/80 via-transparent to-transparent opacity-80"></div>
+
+                            {/* Floating Tech Data Points */}
+                            <div className="absolute top-12 left-12 p-5 glass-panel rounded-2xl border-white/10 animate-float">
+                                <div className="text-gold-400 text-[9px] font-black tracking-widest uppercase mb-1">Status</div>
+                                <div className="text-white text-sm font-bold font-display">READY_TO_FORGE</div>
+                            </div>
+
+                            <div className="absolute bottom-12 right-12 p-5 glass-panel rounded-2xl border-white/10 animate-float-delayed">
+                                <div className="text-gold-400 text-[9px] font-black tracking-widest uppercase mb-1">Version</div>
+                                <div className="text-white text-sm font-bold font-display">ARC_V2.0</div>
+                            </div>
+                        </div>
                     </motion.div>
                 </div>
             </div>
@@ -76,13 +110,15 @@ const Hero = () => {
             {/* Aesthetic Scroll Indicator */}
             <motion.div
                 animate={{ y: [0, 10, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute bottom-12 left-1/2 -translate-x-1/2 opacity-20"
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 group cursor-pointer"
             >
-                <div className="w-[1px] h-20 bg-gradient-to-b from-white to-transparent"></div>
+                <span className="text-[9px] font-black uppercase tracking-[0.4em] text-white/30 group-hover:text-gold-400 transition-colors">Scroll to Descend</span>
+                <div className="w-[1px] h-20 bg-gradient-to-b from-transparent via-white/20 to-transparent group-hover:via-gold-500 transition-colors duration-500"></div>
             </motion.div>
         </section>
     );
 };
 
 export default Hero;
+
